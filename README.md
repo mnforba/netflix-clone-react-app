@@ -1,3 +1,12 @@
+### Steps to follow
+**Step 1:- Provision one Instance
+Netflix-project - AMI ubuntu 22.04, t2.medium
+
+**Install updates
+Use the command" `sudo apt-get update`
+**Install docker. 
+*Installation steps, click [here](https://docs.docker.com/engine/install/ubuntu/)
+*Give permission to Docker using `sudo usermod -aG docker $USER && newgrp docker`
 
 
 
