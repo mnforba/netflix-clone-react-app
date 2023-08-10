@@ -1,12 +1,29 @@
 ### Steps to follow
-**Step 1:- Provision one Instance
+** Step 1:- Provision one Instance
 Netflix-project - AMI ubuntu 22.04, t2.medium
 
-**Install updates
+** Install updates
 Use the command" `sudo apt-get update`
-**Install docker. 
-*Installation steps, click [here](https://docs.docker.com/engine/install/ubuntu/)
-*Give permission to Docker using `sudo usermod -aG docker $USER && newgrp docker`
+** Install docker. 
+* Installation steps, click [here](https://docs.docker.com/engine/install/ubuntu/)
+* Give permission to Docker using `sudo usermod -aG docker $USER && newgrp docker`
+** Minikube and kubectl install, click [here](https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/)
+
+** Step 2:- Push Docker image to Docker-hub
+* Get Netflix app code from [here](https://github.com/mnforba/netflix-clone-react-app.git) and clone in the EC2 instance.
+* Verify that the Dockerfile exist and make necessary modifications
+* Create an image out of the docker file and create and run the container out if it. Use the command `docker build -t netflix-clone .`
+* Create docker hub account if you don't have. Make repository on docker-kub
+* tag image using `docker tag netflix-clone:latest yourdockerhubname/netflix-clone-react-app:latest`
+* push the tag image to docker-hub with `docker push yourdockerhubname/netflix-clone-react-app:latest`
+
+** Step 3:- Create Deployment and service.yml files for Deployments
+* Verify that `deployment.yml` and `service.yml` exist
+* use `kubectl apply -f deployment.yml` and `kubectl apply -f service.yml` to deploy.
+* verify the deployments and service
+* Get the URL and curl it to check the website accessibility
+ `minikube service netflix-app --url` and `curl -L url`
+
 
 
 
